@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background: #f0f0f0;
+}
+
+#chat {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#messages {
+  min-height: 200px;
+  margin-bottom: 1em;
+  overflow-y: auto;
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.5em;
+}
+
+#chat-form input[type="text"] {
+  flex: 1;
+}
+

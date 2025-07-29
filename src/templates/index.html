@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asteroid Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div id="chat">
+    <div id="messages"></div>
+    <form id="chat-form">
+      <input type="text" id="prompt" placeholder="Say something..." autofocus>
+      <input type="file" id="image-input" accept="image/*">
+      <button type="button" id="mic-btn">🎤</button>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const recognition = window.SpeechRecognition || window.webkitSpeechRecognition
+      ? new (window.SpeechRecognition || window.webkitSpeechRecognition)()
+      : null;
+    const micBtn = document.getElementById('mic-btn');
+    if (recognition) {
+      micBtn.addEventListener('click', () => recognition.start());
+      recognition.addEventListener('result', e => {
+        document.getElementById('prompt').value = e.results[0][0].transcript;
+      });
+    } else {
+      micBtn.disabled = true;
+    }
+
+    document.getElementById('chat-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const prompt = document.getElementById('prompt').value;
+      const formData = new FormData();
+      formData.append('prompt', prompt);
+      const imageInput = document.getElementById('image-input');
+      if (imageInput.files[0]) {
+        formData.append('image', imageInput.files[0]);
+      }
+      const resp = await fetch('/ask', { method: 'POST', body: formData });
+      const data = await resp.json();
+      const msg = document.createElement('div');
+      msg.textContent = 'Assistant: ' + data.answer;
+      document.getElementById('messages').appendChild(msg);
+    });
+  </script>
+</body>
+</html>
+

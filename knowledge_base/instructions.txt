@@ -1,7 +1,124 @@
-Welcome! This assistant helps you build a basic asteroid game using Purple Mash.
-1. Start by creating a new project in Purple Mash.
-2. Add sprites for the spaceship and asteroids.
-3. Use the code editor to move the spaceship with arrow keys.
-4. Program asteroids to fall from the top of the screen.
-5. Detect collisions and update the score.
-6. Test your game and share with classmates!
+# \ud83d\ude80 Asteroid Adventure Knowledge Base
+
+## Activity Overview
+
+The Asteroid Adventure is a creative coding project in Purple Mash's Free Code platform. Learners create an interactive game where a spaceship navigates an asteroid field, avoiding collisions while earning points over time.
+
+## Prerequisites
+
+* Access Purple Mash "Free Code"
+* Basic familiarity with drag-and-drop coding blocks
+* Understanding browser navigation (tab duplication, split-screen)
+
+## Knowledge Structure (Step-by-Step Instructions)
+
+### Step 1: Browser Setup
+
+* Duplicate Purple Mash tab (right-click \u2192 duplicate)
+* Arrange tabs side-by-side (instructions in one tab, coding environment in the other)
+
+### Step 2: Design Your Game
+
+* Open Design view (purple button, top-right)
+* Set up background: dark space color
+* Add and name essential game objects clearly:
+  * spaceship (character sprite, positioned at bottom center, recommended coordinates: x=13, y=3)
+  * asteroid1 and asteroid2 (objects or animals sprites, placed at top corners, recommended coordinates: asteroid1 x=3,y=15; asteroid2 x=23,y=15)
+* Add text-based game information:
+  * Score: numeric text object (initial value=0, placed top-right)
+  * Lives: numeric text object (initial value=3, placed top-left)
+* Save Design settings before moving on
+
+### Step 3: Create Variables and Functions
+
+* Define the variables clearly with starting values:
+  * Lives = 3 (tracks player\u2019s lives remaining)
+  * Score = 0 (tracks game progress)
+* Create function Respawn to reset game object positions:
+  spaceship.x = 13
+  spaceship.y = 3
+  asteroid1.x = 3
+  asteroid1.y = 15
+  asteroid2.x = 23
+  asteroid2.y = 15
+
+### Step 4: Program Spaceship Movement
+
+* Use arrow keys to move spaceship:
+  * Right Arrow: spaceship x add 1
+  * Left Arrow: spaceship x subtract 1
+  * Up Arrow: spaceship y add 1
+  * Down Arrow: spaceship y subtract 1
+* Ensure clear, responsive movement of spaceship
+
+### Step 5: Asteroid Movement
+
+* Asteroids move downward continuously:
+  * Timer every 2 seconds:
+    asteroid1 y subtract 1
+    asteroid2 y subtract 1
+* Optional variations: increase speed or add randomness for greater challenge
+
+### Step 6: Collision Detection (Spaceship-Asteroid)
+
+* On collision between spaceship and asteroid:
+  Lives subtract 1
+  Call function Respawn
+* Asteroids reset position, giving player clear feedback of the hit
+
+### Step 7: Scoring System
+
+* Score continuously increases as a reward for survival:
+  * Timer every 1 second:
+    Score add 1
+* Scoring motivates players to keep playing and improving
+
+### Step 8: Game Over Conditions
+
+* Game checks regularly if Lives reach zero:
+  * Timer every 0.5 seconds:
+    If Lives equals 0:
+        Alert ("Game Over! Your score is " + Score)
+        restart
+* Provides clear feedback and automatic reset after game ends
+
+### Step 9: Testing and Debugging
+
+* Regularly remind learners to test each feature after adding new blocks:
+  * Confirm spaceship movement, asteroid movement, collision logic, scoring, and game-over logic function correctly.
+* Common issues to check if something isn\u2019t working:
+  * Variable names spelling (case-sensitive)
+  * Blocks placed inside wrong events
+  * Incorrect or forgotten timer settings
+
+### Step 10: Bonus Challenges (Advanced ideas for extension)
+
+* Additional asteroids with varied speeds and directions
+* Power-ups granting shields, speed boosts, or extra points
+* Add sound and visual effects (background music, collisions)
+
+## Troubleshooting Quick-Reference (FAQ style)
+
+* Spaceship not moving?
+  * Check key-press events; confirm they're correctly linked (right \u2192 x add 1, etc.)
+* Asteroids not moving?
+  * Verify timer block (every 2 seconds) correctly reduces asteroid's Y-position.
+* Collision not detected?
+  * Check event block: "when spaceship collides with asteroid"
+* Game Over alert doesn't appear?
+  * Confirm that the timer checks Lives variable every 0.5 seconds and triggers an alert if Lives=0.
+* Score not increasing?
+  * Ensure timer every 1 second includes "Score add 1" inside it.
+
+## Chatbot Communication Tips
+
+* Provide step-by-step instructions clearly and sequentially.
+* Encourage frequent testing and provide quick troubleshooting references.
+* Remind learners to keep the split-screen setup to follow instructions smoothly.
+* Celebrate learner achievements to motivate continued engagement.
+
+## Conclusion and Encouragement
+
+* Reinforce the concept that coding involves testing, learning from mistakes, and creative problem-solving.
+* Encourage exploration beyond provided instructions to stimulate creativity.
+

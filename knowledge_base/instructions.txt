@@ -1,0 +1,7 @@
+Welcome! This assistant helps you build a basic asteroid game using Purple Mash.
+1. Start by creating a new project in Purple Mash.
+2. Add sprites for the spaceship and asteroids.
+3. Use the code editor to move the spaceship with arrow keys.
+4. Program asteroids to fall from the top of the screen.
+5. Detect collisions and update the score.
+6. Test your game and share with classmates!

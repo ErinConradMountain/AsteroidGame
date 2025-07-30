@@ -21,6 +21,18 @@ body {
   overflow-y: auto;
 }
 
+.user {
+  text-align: right;
+  color: #0366d6;
+  margin: 0.25em 0;
+}
+
+.assistant {
+  text-align: left;
+  color: #333;
+  margin: 0.25em 0;
+}
+
 #chat-form {
   display: flex;
   gap: 0.5em;
@@ -29,4 +41,3 @@ body {
 #chat-form input[type="text"] {
   flex: 1;
 }
-
